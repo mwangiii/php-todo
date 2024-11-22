@@ -21,6 +21,7 @@ pipeline {
       steps {
              sh 'mv .env.sample .env'
              sh 'mkdir -p bootstrap/cache'
+             sh 'mkdir -p tools'
              sh 'composer install'
              sh 'php artisan migrate'
              sh 'php artisan db:seed'
