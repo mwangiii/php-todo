@@ -20,9 +20,9 @@ pipeline {
     stage('Prepare Dependencies') {
       steps {
         sh 'mv .env.sample .env'
-        sh'composer require --dev phpunit/phpunit:^9.5 --with-all-dependencies'
+        sh 'mkdir -p bootstrap/cache'
         sh 'composer install'
-        sh 'composer require --dev phpunit/phpunit:^9.5'
+        sh'composer require --dev phpunit/phpunit:^9.5 --with-all-dependencies'
         sh 'php artisan migrate'
         sh 'php artisan db:seed'
         sh 'php artisan key:generate'
