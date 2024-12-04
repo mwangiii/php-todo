@@ -20,7 +20,7 @@ pipeline {
     stage('Prepare Dependencies') {
       steps {
         sh 'mv .env.sample .env'
-        sh 'mkdir -p bootstrap/cache storage/framework/sessions storage/framework/views storage/framework/cache storage/logs'        
+        sh'composer require --dev phpunit/phpunit:^9.5 --with-all-dependencies'
         sh 'composer install'
         sh 'composer require --dev phpunit/phpunit:^9.5'
         sh 'php artisan migrate'
