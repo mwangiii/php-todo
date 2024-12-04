@@ -22,7 +22,7 @@ pipeline {
         sh 'mv .env.sample .env'
         sh 'mkdir -p bootstrap/cache'
         sh 'composer install'
-        sh 'composer require --dev phpunit/phpunit'
+        sh 'composer require --dev phpunit/phpunit:^9.5'
         sh 'php artisan migrate'
         sh 'php artisan db:seed'
         sh 'php artisan key:generate'
