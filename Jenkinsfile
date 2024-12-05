@@ -66,6 +66,7 @@ pipeline {
             }
         }
     }
+
   }
   stage ('Upload Artifact to Artifactory') {
           steps {
