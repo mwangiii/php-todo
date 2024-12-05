@@ -57,9 +57,14 @@ pipeline {
     }
   }
     stage ('Package Artifact') {
-      steps {
-            sh 'zip -qr php-todo.zip ${WORKSPACE}/*'
-     }
+    steps {
+        script {
+            if (fileExists("${WORKSPACE}/*")) {
+                sh 'zip -qr php-todo.zip ${WORKSPACE}/*'
+            } else {
+                error "No files found to package in the workspace."
+            }
+        }
     }
-  }
+}
 }
