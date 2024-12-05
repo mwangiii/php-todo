@@ -11,11 +11,11 @@ pipeline {
       }
     }
 
-    // stage('Checkout SCM') {
-    //   steps {
-    //     git branch: 'main', url: 'https://github.com/mwangiii/php-todo.git'
-    //   }
-    // }
+    stage('Checkout SCM') {
+      steps {
+        git branch: 'main', url: 'https://github.com/mwangiii/php-todo.git'
+      }
+    }
 
     // stage('Prepare Dependencies') {
     //   steps {
