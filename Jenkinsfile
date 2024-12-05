@@ -11,23 +11,23 @@ pipeline {
       }
     }
 
-    stage('Checkout SCM') {
-      steps {
-        git branch: 'main', url: 'https://github.com/mwangiii/php-todo.git'
-      }
-    }
+    // stage('Checkout SCM') {
+    //   steps {
+    //     git branch: 'main', url: 'https://github.com/mwangiii/php-todo.git'
+    //   }
+    // }
 
-    stage('Prepare Dependencies') {
-      steps {
-        sh 'mv .env.sample .env'
-        sh 'mkdir -p bootstrap/cache'
-        sh 'composer install'
-        // sh'composer require --dev phpunit/phpunit:^9.5'
-        sh 'php artisan migrate'
-        sh 'php artisan db:seed'
-        sh 'php artisan key:generate'
-      }
-    }
+    // stage('Prepare Dependencies') {
+    //   steps {
+    //     sh 'mv .env.sample .env'
+    //     sh 'mkdir -p bootstrap/cache'
+    //     sh 'composer install'
+    //     // sh'composer require --dev phpunit/phpunit:^9.5'
+    //     sh 'php artisan migrate'
+    //     sh 'php artisan db:seed'
+    //     sh 'php artisan key:generate'
+    //   }
+    // }
 
     // stage('Execute Unit Tests') {
     // //   steps {
