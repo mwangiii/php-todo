@@ -1,7 +1,13 @@
 pipeline {
     agent any
-      tools {
-        jdk 'java 11'  // This refers to the name of the JDK you configured in Global Tool Configuration
+    tools {
+        // Use the correct JDK tool name (if it's configured globally)
+        jdk 'java 11'  // Ensure this is the correct tool name from Global Tool Configuration
+    }
+    environment {
+        // You can explicitly set JAVA_HOME if required
+        JAVA_HOME = '/usr/lib/jvm/java-11-openjdk-amd64'
+        PATH = "${JAVA_HOME}/bin:${env.PATH}"
     }
     
     stages {
@@ -19,10 +25,9 @@ pipeline {
             }
         }
 
-
         stage('SonarQube Quality Gate') {
             environment {
-                scannerHome = tool 'SonarQubeScanner'
+                scannerHome = tool 'SonarQubeScanner' // Make sure this is correctly configured in Jenkins
             }
             steps {
                 withSonarQubeEnv('sonarQube') {
