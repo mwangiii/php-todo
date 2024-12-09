@@ -1,7 +1,7 @@
 pipeline {
     agent any
       tools {
-        jdk 'Java 11'  // This refers to the name of the JDK you configured in Global Tool Configuration
+        jdk 'java 11'  // This refers to the name of the JDK you configured in Global Tool Configuration
     }
     
     stages {
