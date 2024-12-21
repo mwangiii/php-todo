@@ -14,19 +14,19 @@ pipeline {
             }
         }
 
-        stage('Prepare Dependencies') {
-            steps {
-                sh 'mv .env.sample .env'
-                sh 'mkdir -p bootstrap/cache'
-                sh 'composer install'
-                sh 'composer require --dev phpunit/phpunit'
-                sh 'mkdir -p storage/framework/sessions'
-                sh 'php artisan migrate'
-                sh 'php artisan db:seed'
-                sh 'php artisan key:generate'
-                sh 'php artisan config:cache'
-            }
-        }
+        // stage('Prepare Dependencies') {
+        //     steps {
+        //         sh 'mv .env.sample .env'
+        //         sh 'mkdir -p bootstrap/cache'
+        //         sh 'composer install'
+        //         sh 'composer require --dev phpunit/phpunit'
+        //         sh 'mkdir -p storage/framework/sessions'
+        //         sh 'php artisan migrate'
+        //         sh 'php artisan db:seed'
+        //         sh 'php artisan key:generate'
+        //         sh 'php artisan config:cache'
+        //     }
+        // }
 
         stage('Execute Unit Tests') {
             steps {
